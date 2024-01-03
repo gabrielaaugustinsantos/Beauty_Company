@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhe Conosco</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+   
+    <%- include('../menu.ejs'); %>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <section>
+            <p class="subtitulo4">Olá, bem vindo! Cadastre seu currículo abaixo:</p>
+            <br>
+            <hr>
+            <br>
+    </section>
+
+    <br>
+
+    <section id="cadastro">
+        <form class="formulario" action="/processarespecialista" method="post">
+           <fieldset>
+                <legend>Dados Pessoais</legend>
+    
+                <label for="nome_especialista">Nome:</label><br>
+                <input type="text" name="nome_especialista" id="nome_especialista" value="<%= e.nome_especialista%>" size="30"><br><br>
+
+                <label for="cpf_especialista">CPF:</label><br>
+                <input type="text" name="cpf_especialista" id="cpf_especialista" value="<%= e.cpf_especialista%>"><br><br>
+
+                <label for="data_nascimento_especialista">Data de Nascimento:</label><br>
+                <input type="text" name="data_nascimento_especialista" id="data_nascimento_especialista" value="<%= e.data_nascimento_especialista%>" size="40"><br><br>
+    
+                <label for="email_especialista">E-mail:</label><br>
+                <input type="email" name="email_especialista" id="email_especialista" value="<%= e.email_especialista%>" size="30"><br><br>
+    
+                <label for="genero_especialista">Gênero:</label><br>
+                    <select name="genero_especialista" id="genero_especialista" value="<%= e.genero_especialista%>" required>
+                        <option value="">Selecione o gênero com o qual você se identifica</option>
+                        <option value="Feminino" <%= e.genero_especialista === 'Feminino' ? 'selected' : '' %>>Feminino</option>
+                        <option value="Masculino" <%= e.genero_especialista === 'Masculino' ? 'selected' : '' %>>Masculino</option>
+                        <option value="Agênero" <%= e.genero_especialista === 'Agênero' ? 'selected' : '' %>>Agênero</option>
+                        <option value="Não-binário" <%= e.genero_especialista === 'Não-binário' ? 'selected' : '' %>>Não-binário</option> 
+                        <option value="Outros" <%= e.genero_especialista === 'Outros' ? 'selected' : '' %>>Outros</option>
+                    </select><br><br>
+    
+                <label for="endereco_especialista">Endereço:</label><br>
+                <textarea name="endereco_especialista" id="endereco_especialista" cols="100" rows="3"><%= e.endereco_especialista%></textarea><br><br>
+
+                <label for="telefone_especialista">Telefone para Contato:</label><br>
+                <input type="number" name="telefone_especialista" id="telefone_especialista" value="<%= e.telefone_especialista%>"><br><br>
+    
+                <label for="formacao_especialista">Formação Acadêmica:</label><br>
+                <textarea name="formacao_especialista" id="formacao_especialista" cols="100" rows="3"><%= e.formacao_especialista%></textarea><br><br>
+
+                <label for="experiencia_especialista">Experiência Profissional:</label><br>
+                <textarea name="experiencia_especialista" id="experiencia_especialista" cols="100" rows="3"><%= e.experiencia_especialista%></textarea><br><br>
+
+                <label for="objetivo_especialista">Objetivo:</label><br>
+                <textarea name="objetivo_especialista" id="objetivo_especialista" cols="100" rows="3"><%= e.objetivo_especialista%></textarea><br><br>
+
+                <label for="arquivo">Adicione seu currículo:</label><br>
+                <input type="file" id="arquivo" name="arquivo" />
+                <br/>
+                <br/>
+            </fieldset>
+            <br>
+
+            <input type="submit"  class="button1" name="acao" value="<%= a%>"></input>
+            <input type="reset"  class="button1" name="cancelar" value="Cancelar"></input>
+        </form>
+    </section>
+    
+    <br>
+    <br>
+
+    <%- include('../rodape.ejs'); %>
+
+</body>
+</html>

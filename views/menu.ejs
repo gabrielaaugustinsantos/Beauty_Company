@@ -1,0 +1,48 @@
+<section>
+    <nav>
+        <a class="logo">Beauty Company</a>
+        <ul class="nav-list">
+
+            <img src="icon1.png" class="icon"><li><a href="/">Home</a></li>
+
+            <%
+            if (admin == true) {
+            %>
+            <img src="icon2.png" class="icon"><li><a href="/lista_cliente">Clientes</a></li>
+            <img src="icon2.png" class="icon"><li><a href="/lista_especialista">Especialistas</a></li>
+            <img src="icon4.png" class="icon3"><li><a href="/lista_produto">Produtos</a></li>
+            <img src="icon4.png" class="icon3"><li><a href="/lista_pedido">Pedidos</a></li>
+            <img src="icon5.png" class="icon3"><li><a href="/logout">Sair</a></li>
+
+            <%
+            } else {
+                if (logado == false) {
+            %>
+                    <img src="icon2.png" class="icon"><li><a href="/form_cliente">Cadastre-se</a></li>
+                    <img src="icon3.png" class="icon3"><li><a href="/form_especialista">Trabalhe Conosco</a></li>
+                    <img src="icon4.png" class="icon3"><li><a href="/lista_produto">Produtos</a></li>
+                    <img src="icon5.png" class="icon3"><li><a href="/entrar">Entrar</a></li>
+            <%
+                } else {
+            %>
+                    <img src="icon4.png" class="icon3"><li><a href="/lista_produto">Produtos</a></li>
+                  
+                    <img src="icon2.png" class="icon"><li><a href="/lista_pedido">Meus Pedidos</a></li>
+
+                    <li>
+                        <img src="icon2.png" class="icon">
+                            <a href="/perfil">Perfil
+                      
+                            <input type="submit" value="Perfil" name="acao" style="display: none">
+                        </a>
+                    </li>
+                    <img src="icon5.png" class="icon3"><li><a href="/logout">Sair</a></li>
+             
+            <%
+                }
+            }
+            %>
+        
+    </ul>
+    </nav>
+</section>

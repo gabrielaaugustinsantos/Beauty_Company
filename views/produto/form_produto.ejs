@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+   
+    <%- include('../menu.ejs'); %>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <section>
+        <p class="subtitulo4">Olá, bem vindo! Adicione um produto ao catálogo:</p>
+        <br>
+        <hr>
+        <br>
+    </section>   
+
+    <br>
+
+    <section>
+        <form class="formulario" action="/processarproduto" method="post">
+
+            <fieldset style="height: 50%;">
+                <legend>Dados do Produto</legend>
+    
+                <br>
+
+                <label for="id_produto">Código do Produto:</label><br>
+                <input type="number" name="id_produto" id="id_produto" size="30"><br><br>
+
+                <label for="nome_produto">Nome do Produto:</label><br>
+                <input type="text" name="nome_produto" id="nome_produto" size="30"><br><br>
+
+                <label for="valor_produto">Valor do Produto:</label><br>
+                <input type="number" name="valor_produto" id="valor_produto" size="30"><br><br>
+
+            </fieldset>
+
+            <br>
+            
+            <a href="/salvar_produto"><input type="submit"  class="button1" name="salvar" value="Salvar"></input></a>
+            <input type="reset"  class="button1" name="cancelar" value="Cancelar"></input> 
+        </form>
+        </section>
+
+        <br>
+        <br>
+        <br>
+
+        <%- include('../rodape.ejs'); %>
+        
+</body>
+</html>

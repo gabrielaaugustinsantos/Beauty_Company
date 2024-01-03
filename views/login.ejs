@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+    
+    <%- include('./menu.ejs'); %>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <section>
+       
+         <%
+		 if (!logado) {
+		 %>
+
+            <section>
+                <p class="subtitulo4">Para efetuar compras você deve entrar no sistema. Digite suas credenciais.</p>
+                <br>
+                <hr>
+                <br>
+            </section>   
+    
+             <p style="color: #FF0000;"><%= msg%></p>
+
+             <br>
+
+            <form class="formulario_login" action="/login" method="post">
+             <fieldset style="height: 50%;">
+                    <legend>Login</legend>
+
+                    <br>
+
+                    <label for="email">E-mail:</label><br>
+                    <input type="text" name="email" id="email" size="40" value=""><br><br>
+
+                    <label for="senha">Senha:</label><br>
+                    <input type="password" name="senha" id="senha" size="20" value=""><br><br>
+
+            </fieldset>
+
+            <br>
+        
+            <input type="submit" class="button1" name="acao" value="Entrar">
+            <input type="reset" class="button1" name="limpar" value="Limpar"> 
+
+            <br>
+            <br>
+            
+          </form>
+
+			<%
+			} else {
+			%>
+            <p class="subtitulo4">Seja bem vindo à Beauty Company - <%= msg%>.</p>
+
+            <br>
+            <hr>
+
+            <br>
+            <br>
+				
+                <center><p class="subtitulo4">Agradecemos a preferência.</p></center>
+                <center><p class="subtitulo4">Boas compras!</p></center>
+
+            <br>
+            <br>
+
+			<%
+			}
+			%>
+
+        </section>
+
+        <%- include('./rodape.ejs'); %>
+        
+   </html>

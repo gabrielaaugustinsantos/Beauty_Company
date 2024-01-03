@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <title>Produtos</title>
+</head>
+<body>
+
+    <%- include('../menu.ejs'); %>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <section>
+        <p class="subtitulo4">Olá, bem-vindo! Escolha seus produtos:</p>
+        <br>
+        <hr>
+        <br>
+        <form class="search-container" action="/pesquisarProduto" method="post">
+            <input type="text" id="search-bar" name="nome_produto" placeholder="Filtrar"/>
+            <br>
+            <br>
+            <center><input type="submit" class="button1" value="Filtrar"></center>
+        </form>
+    </section>
+
+
+    <br>
+    <br>
+
+    
+    <form action="/processarpedido" method="post">
+    <section>
+        <input type="submit" class="button1" value="Comprar" name="acao">
+        <%
+        if (admin == true) {
+        %>
+        <input type="submit" class="button1" value="Adicionar Produto" name="acao">
+        <%
+        }
+        %>
+    </section>
+    
+    <br>
+    <hr>
+
+    <section>   
+        <div class="tabela"> 
+        <table>
+                <tr>
+                    <th>Seleção</th>
+                    <th>Código do Produto</th>
+                    <th>Nome do produto</th>
+                    <th>Valor do Produto</th>
+                    <th>Quantidade</th>
+                    <th>Valor fixo de entrega</th>
+                </tr>
+                <%
+                produto.forEach((pr, index) => {
+                %>
+                <tr>
+                    <td><input type="radio" name="id_produto" value="<%= pr.id_produto %>" onclick="habilitar('quantidade<%= pr.id_produto %>');"></td>
+                    <td><%= pr.id_produto %></td>
+                    <td><%= pr.nome_produto %><input type="hidden" name="nome_produto" value="<%= pr.nome_produto %>"></td>
+                    <td><%= pr.valor_produto %><input type="hidden" name="valor_produto" value="<%= pr.valor_produto %>"></td>
+                    <td><input type="number" id="quantidade<%= pr.id_produto %>" name="quantidade" value="1" disabled="disabled"></td>
+                    <td>R$15,00</td>
+                </tr>
+                <%
+                })
+                %>
+            </div>
+        </table>
+    </section>
+</form>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <%- include('../rodape.ejs'); %>
+
+    <script language="javascript">
+        function habilitar(x) {
+
+            var allcampos = document.querySelectorAll('input[type="number"]');
+            allcampos.forEach(function (input) {
+                input.disabled = true;
+            });
+            var input = document.getElementById(x);
+            input.disabled = false;
+
+         }
+
+    </script>
+
+</body>
+</html>

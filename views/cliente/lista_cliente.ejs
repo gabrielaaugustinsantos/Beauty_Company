@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+   
+    <%- include('../menu.ejs'); %>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <section>
+        <p class="subtitulo4">Abaixo encontram-se os clientes cadastrados</p>
+        <br>
+        <hr>
+        <br>
+        <form class="search-container" action="/pesquisarCliente" method="post">
+            <input type="text" id="search-bar" name="nome" placeholder="Filtrar"/>
+            <br>
+            <br>
+            <center><input type="submit" class="button1" value="Filtrar"></center>
+        </form>
+    </section> 
+
+    <br>
+    <br>
+    <form action="/form_cliente" method="post">
+        <section>
+            <input type="submit" class="button1" value="Inserir" name="acao">
+            <input type="submit" class="button1" value="Atualizar" name="acao">
+            <input type="submit" class="button1" value="Excluir" name="acao">
+        </section>
+
+
+        <br>
+        <hr>
+
+        <section>   
+            <div class="tabela"> 
+            <table>
+                    <tr>
+                        <th>Seleção</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>E-mail</th>
+                        <th>Gênero</th>
+                        <th>Endereço</th>
+                        <th>Telefone</th>
+                        <th>Deseja Participar do Grupo</th>
+                    </tr>
+                    <%
+                    cliente.forEach((c, index) => {
+                    %>
+                    <tr>
+                        <td><input type="radio" name="cpf" value="<%= c.cpf %>"></td>
+                        <td><%= c.nome %></td>
+                        <td><%= c.cpf %></td>
+                        <td><%= c.email %></td>
+                        <td><%= c.genero %></td>
+                        <td><%= c.endereco %></td>
+                        <td><%= c.telefone %></td>
+                        <td><%= c.whatsapp %></td>
+                    </tr>
+                    <%
+                    })
+                    %>
+                </div>
+            </table>
+        </section>
+    </form>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <%- include('../rodape.ejs'); %>
+    
+</body>
+</html>

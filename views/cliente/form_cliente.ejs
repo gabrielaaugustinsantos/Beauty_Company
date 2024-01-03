@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+   
+    <%- include('../menu.ejs'); %>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <section>
+        <p class="subtitulo4">Olá, bem vindo! Cadastre-se abaixo:</p>
+        <br>
+        <hr>
+        <br>
+    </section>  
+
+    <br>
+
+    <section id="cadastro">
+        <form class="formulario" action="/processarcliente" method="post">
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+    
+                <label for="nome">Nome:</label><br>
+                <input type="text" name="nome" id="nome" value="<%= c.nome%>" size="30"><br><br>
+    
+                <label for="cpf">CPF:</label><br>
+                <input type="text" name="cpf" id="cpf"  value="<%= c.cpf%>"><br><br>
+    
+                <label for="data_nascimento">Data de nascimento:</label><br>
+                <input type="text" name="data_nascimento" id="data_nascimento" value="<%= c.data_nascimento%>" size="40"><br><br>
+
+                <label for="email">E-mail:</label><br>
+                <input type="text" name="email" id="email" value="<%= c.email%>" size="30"><br><br>
+
+                <label for="senha">Senha:</label><br>
+                <input type="text" name="senha" id="senha" value="<%= c.senha%>" size="30"><br><br>
+                <%
+                if (a == 'Atualizar') {
+                %>
+                <label for="is_admin">Administrador?:</label><br>
+                <input type="checkbox" name="is_admin" id="is_admin" value="1" <%= (c.isAdmin == 1 ? "checked":"")%>><br><br>
+                <%
+                }
+                %>
+                <label for="genero">Gênero:</label><br>
+                    <select name="genero" id="genero" value="<%= c.genero%>" required>
+                        <option value="">Selecione o gênero com o qual você se identifica</option>
+                        <option <%= c.genero === 'Feminino' ? 'selected' : '' %>>Feminino</option>
+                        <option <%= c.genero === 'Masculino' ? 'selected' : '' %>>Masculino</option>
+                        <option <%= c.genero === 'Agênero' ? 'selected' : '' %>>Agênero</option>
+                        <option <%= c.genero === 'Não-binário' ? 'selected' : '' %>>Não-binário</option> 
+                        <option <%= c.genero === 'Outros' ? 'selected' : '' %>>Outros</option>
+                    </select><br><br>
+
+                <label for="endereco">Endereço:</label><br>
+                <textarea name="endereco" id="endereco" cols="100" rows="3"><%= c.endereco%></textarea><br><br>
+    
+                <label for="telefone">Telefone para contato:</label><br>
+                <input type="number" name="telefone" id="telefone" value="<%= c.telefone%>"><br><br>
+    
+                <label for="whatsapp">Você gostaria de entrar no grupo de Whatsapp?</label><br>
+                <input type="radio" name="whatsapp" id="sim" value="Sim" <%= c.whatsapp === 'Sim' ? 'checked' : '' %>>Sim<br>
+                <input type="radio" name="whatsapp" id="nao" value="Não" <%= c.whatsapp === 'Não' ? 'checked' : '' %>>Não<br>
+    
+                <br>
+
+            </fieldset>
+            <br>
+            <input type="submit"  class="button1" name="acao" value="<%= a %>"></input>
+            <input type="reset"  class="button1" name="cancelar" value="Cancelar"></input> 
+            
+        </form>
+    </section>
+
+    <br>
+    <br>
+    <br>
+
+    <%- include('../rodape.ejs'); %>
+    
+</body>
+</html>

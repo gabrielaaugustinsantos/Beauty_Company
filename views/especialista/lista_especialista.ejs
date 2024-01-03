@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhe Conosco</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+    
+    <%- include('../menu.ejs'); %>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <section>
+        <p class="subtitulo4">Abaixo encontram-se os especialistas cadastrados</p>
+        <br>
+        <hr>
+        <br>
+        <form class="search-container" action="/pesquisarEspecialista" method="post">
+            <input type="text" id="search-bar" name="nome_especialista" placeholder="Filtrar"/>
+            <br>
+            <br>
+            <center><input type="submit" class="button1" value="Filtrar"></center>
+        </form>
+    </section>  
+
+    <br>
+    <br>
+
+    <form action="/form_especialista" method="post">
+        <section>
+                <input type="submit" class="button1" value="Inserir" name="acao">
+                <input type="submit" class="button1" value="Atualizar" name="acao">
+                <input type="submit" class="button1" value="Excluir" name="acao">
+        </section>
+
+        <br>
+        <hr>
+
+        <section>   
+            <div class="tabela"> 
+            <table>
+                    <tr>
+                        <th>Seleção</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>E-mail</th>
+                        <th>Gênero</th>
+                        <th>Telefone</th>
+                        <th>Formação</th>
+                        <th>Experiência</th>
+                        <th>Objetivo</th>
+                    </tr>
+                    <%
+                    especialista.forEach((e, index) => {
+                    %>
+                    <tr>
+                        <td><input type="radio" name="cpf_especialista" value="<%= e.cpf_especialista %>"></td>
+                        <td><%= e.nome_especialista %></td>
+                        <td><%= e.cpf_especialista %></td>
+                        <td><%= e.email_especialista %></td>
+                        <td><%= e.genero_especialista %></td>
+                        <td><%= e.telefone_especialista %></td>
+                        <td><%= e.formacao_especialista %></td>
+                        <td><%= e.experiencia_especialista %></td>
+                        <td><%= e.objetivo_especialista %></td>
+                    </tr>
+                    <%
+                    })
+                    %>
+                </div>
+            </table>
+        </section>
+
+    </form>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <%- include('../rodape.ejs'); %>
+    
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+ 
+    <%- include('../menu.ejs'); %>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <section>
+        <p class="subtitulo4">Olá, bem vindo! Faça seu pedido:</p>
+        <br>
+        <hr>
+        <br>
+    </section>
+
+    <br>
+
+    <section>
+        <form class="formulario" action="/processarpedido" method="post">
+
+            <fieldset style="height: 50%;">
+                <legend>Dados do Pedido</legend>
+            
+                <br>
+
+                <label for="id_produto_pedido">Código do Produto:</label><br>
+                <input type="number" name="id_produto_pedido" id="id_produto_pedido" size="30"><br><br>
+
+                <label for="valor_produto_pedido">Valor do Produto:</label><br>
+                <input type="number" name="valor_produto_pedido" id="valor_produto_pedido" size="30"><br><br>
+
+                <label for="qtd">Quantidade do Produto:</label><br>
+                <input type="number" name="qtd" id="qtd" size="30"><br><br>
+
+                <label for="zona">Zona de Entrega:</label><br>
+                <input type="radio" name="zona" id="zonasul" value="Zona Sul"> Zona Sul (R$5,00)<br>
+                <input type="radio" name="zona" id="zonaleste" value="Zona Leste"> Zona Leste (R$10,00)<br>
+                <input type="radio" name="zona" id="zonaoeste" value="Zona Oeste"> Zona Oeste (R$10,00)<br>
+                <input type="radio" name="zona" id="zonanorte" value="Zona Norte"> Zona Norte (R$15,00)<br>
+
+                <br>
+
+            </fieldset>
+
+            <br>
+
+            <a href="/salvar_pedido"><input type="submit"  class="button1" name="salvar" value="Salvar"></input></a>
+            <input type="reset"  class="button1" name="cancelar" value="Cancelar"></input> 
+        </form>
+    </section>
+
+            <br>
+            <br>
+            <br>
+            
+            <%- include('../rodape.ejs'); %>
+            
+    </body>
+    </html>
