@@ -15,8 +15,11 @@ Sistema web para gestão de clientes, especialistas, produtos e pedidos de uma l
 
 • Validação e persistência de dados no MySQL
 
-Tecnologias utilizadas:
+
+**Tecnologias utilizadas:**
 Node.js, MySQL, EJS, HTML/CSS e JavaScript.
+
+________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 Página Home:
 
