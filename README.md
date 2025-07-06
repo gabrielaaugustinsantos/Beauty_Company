@@ -3,7 +3,7 @@ Sistema web para gestão de clientes, especialistas, produtos e pedidos de uma l
 
 **Principais funcionalidades:**
 
-• Autenticação de usuários com sessões (clientes e administradores)
+• Login com autenticação de usuários e permissões (clientes e administradores)
 
 • Gerenciamento completo de clientes e especialistas
 
