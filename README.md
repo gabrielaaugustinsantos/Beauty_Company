@@ -5,7 +5,7 @@ Sistema web para gestão de clientes, especialistas, produtos e pedidos de uma l
 
 • Login com autenticação de usuários e permissões (clientes e administradores)
 
-• Gerenciamento completo de clientes e especialistas
+• Gerenciamento completo de clientes e dermatologistas cadastrados.
 
 • Controle de produtos e pedidos com relacionamento N:N
 
